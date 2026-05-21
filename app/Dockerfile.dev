@@ -1,0 +1,20 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Electron itself never runs in this container (host launches it); skip its ~150 MB binary download.
+ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 8082 19000 19001 19002 19006
+
+ENV CHOKIDAR_USEPOLLING=true \
+    WATCHPACK_POLLING=true \
+    EXPO_NO_TELEMETRY=1 \
+    REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+
+CMD ["npx", "expo", "start", "--web", "--port", "8082", "--host", "lan"]

@@ -1,0 +1,16 @@
+{
+  "name": "mendescompany-os",
+  "version": "0.0.0",
+  "private": true,
+  "description": "NestJS back-end + Expo/Electron app, Docker-orchestrated with live reload.",
+  "scripts": {
+    "dev": "./scripts/dev.sh",
+    "stop": "./scripts/stop.sh",
+    "logs": "./scripts/logs.sh",
+    "up": "docker compose up --build -d",
+    "down": "docker compose down",
+    "electron": "npm --prefix app run electron:dev",
+    "back-end": "npm --prefix back-end run start:dev",
+    "app": "npm --prefix app run web"
+  }
+}

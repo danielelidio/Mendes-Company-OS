@@ -1,0 +1,33 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web --port 8082",
+    "electron:tsc": "tsc -p electron/tsconfig.json",
+    "electron:tsc:watch": "tsc -p electron/tsconfig.json --watch --preserveWatchOutput",
+    "electron:start": "wait-on file:electron/dist/main.js http://localhost:8082 && electron electron/dist/main.js",
+    "electron:dev": "concurrently -k -n tsc,electron -c blue,magenta \"npm:electron:tsc:watch\" \"npm:electron:start\""
+  },
+  "dependencies": {
+    "expo": "~54.0.33",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-web": "^0.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "~19.1.0",
+    "concurrently": "^9.2.1",
+    "electron": "^42.2.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "typescript": "~5.9.2",
+    "wait-on": "^9.0.10"
+  },
+  "private": true
+}
