@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<NFSe xmlns="http://www.sped.fazenda.gov.br/nfse" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#"
+    versao="1.01">
+    <infNFSe Id="NFS31062001241749998000109260000000000526055108474806">
+        <xLocEmi>BELO HORIZONTE</xLocEmi>
+        <xLocPrestacao>BELO HORIZONTE</xLocPrestacao>
+        <nNFSe>2600000000005</nNFSe>
+        <cLocIncid>3106200</cLocIncid>
+        <xLocIncid>BELO HORIZONTE</xLocIncid>
+        <xTribNac>Elaboração de programas de computadores, inclusive de jogos eletrônicos,
+            independentemente da arquitetura construtiva da máquina em que o programa será
+            executado, incluindo tablets, smartphones e congêneres.</xTribNac>
+        <xTribMun>Elaboração de programas de computadores</xTribMun>
+        <verAplic>1.00</verAplic>
+        <ambGer>1</ambGer>
+        <tpEmis>2</tpEmis>
+        <cStat>100</cStat>
+        <dhProc>2026-05-20T15:02:37-03:00</dhProc>
+        <nDFSe>2600000000005</nDFSe>
+        <emit>
+            <CNPJ>41749998000109</CNPJ>
+            <IM>13024050018</IM>
+            <xNome>DANIEL ELIDIO MENDES JUNIOR CONSULTORIA EM TECNOLOGIA DA INFORMACAO</xNome>
+            <xFant>MENDES COMPANY SOLUCOES E TREINAMENTOS EM T.I</xFant>
+            <enderNac>
+                <xLgr>RUA RIO GRANDE DO NORTE</xLgr>
+                <nro>1435</nro>
+                <xCpl>SALA:708;PAVMTO:7;</xCpl>
+                <xBairro>Savassi</xBairro>
+                <cMun>3106200</cMun>
+                <UF>MG</UF>
+                <CEP>30130138</CEP>
+            </enderNac>
+        </emit>
+        <valores>
+            <tpBM>1</tpBM>
+            <vBC>52963.80</vBC>
+            <pAliqAplic>0.00</pAliqAplic>
+            <vISSQN>0.00</vISSQN>
+            <vLiq>52963.80</vLiq>
+        </valores>
+        <DPS versao="1.01">
+            <infDPS Id="DPS310620024174999800010900001002600000000005">
+                <tpAmb>1</tpAmb>
+                <dhEmi>2026-05-20T15:02:37-03:00</dhEmi>
+                <verAplic>1.00</verAplic>
+                <serie>00001</serie>
+                <nDPS>2600000000005</nDPS>
+                <dCompet>2025-09-30</dCompet>
+                <tpEmit>1</tpEmit>
+                <cLocEmi>3106200</cLocEmi>
+                <subst>
+                    <chSubstda>31062001241749998000109260000000000126046524974820</chSubstda>
+                    <cMotivo>99</cMotivo>
+                    <xMotivo>Erro na Emissão</xMotivo>
+                </subst>
+                <prest>
+                    <CNPJ>41749998000109</CNPJ>
+                    <IM>13024050018</IM>
+                    <regTrib>
+                        <opSimpNac>3</opSimpNac>
+                        <regApTribSN>1</regApTribSN>
+                        <regEspTrib>0</regEspTrib>
+                    </regTrib>
+                </prest>
+                <serv>
+                    <locPrest>
+                        <cLocPrestacao>3106200</cLocPrestacao>
+                    </locPrest>
+                    <cServ>
+                        <cTribNac>010401</cTribNac>
+                        <cTribMun>001</cTribMun>
+                        <xDescServ>Software development services to Lineage Logistics project (USD
+                            9,951.30)</xDescServ>
+                    </cServ>
+                </serv>
+                <valores>
+                    <vServPrest>
+                        <vServ>52963.80</vServ>
+                    </vServPrest>
+                    <trib>
+                        <tribMun>
+                            <tribISSQN>1</tribISSQN>
+                            <tpRetISSQN>1</tpRetISSQN>
+                            <pAliq>0.00</pAliq>
+                        </tribMun>
+                        <totTrib>
+                            <indTotTrib>0</indTotTrib>
+                        </totTrib>
+                    </trib>
+                </valores>
+            </infDPS>
+        </DPS>
+    </infNFSe>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+            <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+            <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+            <Reference URI="#NFS31062001241749998000109260000000000526055108474806">
+                <Transforms>
+                    <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                    <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                </Transforms>
+                <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                <DigestValue>+oK1g5+Rz0OeLDU4ilyZr+T+yrk=</DigestValue>
+            </Reference>
+        </SignedInfo>
+        <SignatureValue>cSxlXvo4oBHPMIL0DqhhP3nsBPrYjv2xyurjMqOwd1s+dUGS+XfSN2ZwzQ7DtruMMShvKoA5XMdT&#13;
+            4E/J7ogZ3wl0sZziMIlAfXst9NKnTUFNjbCUfbGllz/KhaI9IVdy3yiaSQRe/fjGM/l7aFQKArZP&#13;
+            d6uFXGpboHNch6j/Kw4MFUVZfvjjLfAYzukXPYUgA15VIEuhJpyageER+QJXQ2kqQ3IOZ4Tso6Ui&#13;
+            B84MdChfB3OXE9iOD/6+/eHyC7PRZDeEsuht/Xlj0fWHCpsU4BTYXBCFK9gtRq644Tb51/cxbC7o&#13;
+            y1SjQYO40iGr9Sn1dhhUqonPm64riCVAIoDuHg==</SignatureValue>
+        <KeyInfo>
+            <X509Data>
+                <X509Certificate>MIIHdTCCBV2gAwIBAgIMCOqiGqNkeKqxMfM3MA0GCSqGSIb3DQEBCwUAMIGVMQswCQYDVQQGEwJC&#13;
+                    UjETMBEGA1UECgwKSUNQLUJyYXNpbDE7MDkGA1UECwwyU2VydmljbyBGZWRlcmFsIGRlIFByb2Nl&#13;
+                    c3NhbWVudG8gZGUgRGFkb3MgLSBTRVJQUk8xNDAyBgNVBAMMK0F1dG9yaWRhZGUgQ2VydGlmaWNh&#13;
+                    ZG9yYSBkbyBTRVJQUk8gRmluYWwgdjUwHhcNMjUxMTE3MTMyNzAwWhcNMjYxMTE3MTMyNzAwWjCB&#13;
+                    +zELMAkGA1UEBhMCQlIxCzAJBgNVBAgMAk1HMRcwFQYDVQQHDA5CRUxPIEhPUklaT05URTETMBEG&#13;
+                    A1UECgwKSUNQLUJyYXNpbDEZMBcGA1UECwwQdmlkZW9jb25mZXJlbmNpYTEXMBUGA1UECwwOMjYz&#13;
+                    MDYwMjEwMDAzOTUxGzAZBgNVBAsMElBlc3NvYSBKdXJpZGljYSBBMTENMAsGA1UECwwEQVIzUjEr&#13;
+                    MCkGA1UECwwiQXV0b3JpZGFkZSBDZXJ0aWZpY2Fkb3JhIFNFUlBST0FDRjEkMCIGA1UEAwwbTVVO&#13;
+                    SUNJUElPIERFIEJFTE8gSE9SSVpPTlRFMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA&#13;
+                    xP9fD0Cv9U5l6bYpLq1HXzTknWoJQoo3vTq2evUgHVN0tyVzkQB650Xlskf7/D/LJdot1Z8SIG3T&#13;
+                    MQRnD32UYrot7Cgf/0u4NgBplzQcbjFs29d0Ou8p/wpo5vtRkXEwv0SfqPifbUEOl3lOkdbF5VVK&#13;
+                    MBrvk5mVFQ0CzwnTsj2B1SPph6mRxFPXdsnlpa6GKw2EEwpGnH+FFDWwNXT5PkTSkUKdzQgWQkp9&#13;
+                    Z1LyZ+QNW5zcs3xo4Q44wz8Vst72ENXNGTQUWkrBhq0z0qskMeL1FbsgjtZoH3mV/ZsEMOJ+ie86&#13;
+                    Vg9L8YNkjClAT1HWLAJBQkXgLpqr42fkpuRfTQIDAQABo4ICWzCCAlcwHwYDVR0jBBgwFoAU6JOr&#13;
+                    43fHUeganO5kXI9/v6rJb5AwDgYDVR0PAQH/BAQDAgXgMFkGA1UdIARSMFAwTgYGYEwBAgEQMEQw&#13;
+                    QgYIKwYBBQUHAgEWNmh0dHA6Ly9yZXBvc2l0b3Jpby5zZXJwcm8uZ292LmJyL2RvY3MvZHBjc2Vy&#13;
+                    cHJvYWNmLnBkZjCBxgYDVR0RBIG+MIG7oDgGBWBMAQMEoC8ELTIyMDkxOTc3NTA5MDkzMDQyMjAw&#13;
+                    MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMKA0BgVgTAEDAqArBClGRVJOQU5ETyBIVUJFUiBQSUNB&#13;
+                    TkNPIERFIE9MSVZFSVJBIEpVTklPUqAZBgVgTAEDA6AQBA4xODcxNTM4MzAwMDE0MKAXBgVgTAED&#13;
+                    B6AOBAwwMDAwMDAwMDAwMDCBFWZlcm5hbmRvaHBAcGJoLmdvdi5icjAdBgNVHSUEFjAUBggrBgEF&#13;
+                    BQcDAgYIKwYBBQUHAwQwgYgGA1UdHwSBgDB+MDygOqA4hjZodHRwOi8vcmVwb3NpdG9yaW8uc2Vy&#13;
+                    cHJvLmdvdi5ici9sY3IvYWNzZXJwcm9hY2Z2NS5jcmwwPqA8oDqGOGh0dHA6Ly9jZXJ0aWZpY2Fk&#13;
+                    b3MyLnNlcnByby5nb3YuYnIvbGNyL2Fjc2VycHJvYWNmdjUuY3JsMFYGCCsGAQUFBwEBBEowSDBG&#13;
+                    BggrBgEFBQcwAoY6aHR0cDovL3JlcG9zaXRvcmlvLnNlcnByby5nb3YuYnIvY2FkZWlhcy9hY3Nl&#13;
+                    cnByb2FjZnY1LnA3YjANBgkqhkiG9w0BAQsFAAOCAgEAIHseArYr1iYvk0fQK/Il2xX8HgrU2cwC&#13;
+                    iHUKcRFjbI8xJSDyq3MZjZi1G8kNhYEww3mjjESDY4tPPa2InzSqoJ+D6ELlSCKQPnwtMCJNopUV&#13;
+                    t3RvW411fnQ/waR+eDYPqDqF8lBfRc8WWMuSxre128A8f+IYgdusViz82t9tczVlxnOAmd0auzxs&#13;
+                    P7NdkNm0hDeRwnRhnM0I1i+zXqr/sZ3JiPZVcB0Nw5LrjLzYJ2rsAw66zqnFhOO1qNq0tvLXQrZL&#13;
+                    rsNRua7bUHwZuEDwMqIKX5XqUL64QnmGrc32vMT098Z40UYszz3EB4YbHXF+fXc1tmds/qSquROY&#13;
+                    M/79iZUQNAQRvyWR+9hDGKjzu62GRRkEfmI9+3zYrSrQ+7pLOcXW7f1ceKEK+WP9ln10PQKaEab1&#13;
+                    IeDnWmHcvOv7+j/CSpoXRerbEdYUKW65YAaVbLFLzgXEvcMc/D4NGA4OHb3B9zOVK/PF3wIzui6m&#13;
+                    NlwqROIeAuCANchTa/mOg+EM/kzk3wPCEK+ba74gp4PzI8h5me2x083as7TK67iQsqH/AK/3xbXy&#13;
+                    M8caFJrmt5QNCr1NF1duzX0SLbn6dJnYCslT2CMvm9s4yEQ28e9s1+Q2IFYW/T1XoVZgQH0JIpIe&#13;
+                    Fy/RQEQy2u76hhK7fvPovCJ576Jzf9P3qu1yXwqQA6I=</X509Certificate>
+            </X509Data>
+        </KeyInfo>
+    </Signature>
+</NFSe>

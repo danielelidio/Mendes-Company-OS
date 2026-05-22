@@ -1,28 +1,31 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
 import { auth } from '@/lib/firebase';
 
-function messageForCode(code: string): string {
+/** Maps a Firebase auth error code to a translation key under `login.errors`. */
+function errorKeyForCode(code: string): string {
   switch (code) {
     case 'auth/invalid-email':
-      return 'Enter a valid email address.';
+      return 'invalidEmail';
     case 'auth/user-disabled':
-      return 'This account has been disabled.';
+      return 'disabled';
     case 'auth/invalid-credential':
     case 'auth/wrong-password':
     case 'auth/user-not-found':
-      return 'Invalid email or password.';
+      return 'invalidCredential';
     case 'auth/too-many-requests':
-      return 'Too many attempts. Please try again later.';
+      return 'tooManyRequests';
     case 'auth/network-request-failed':
-      return 'Network error. Check your connection and try again.';
+      return 'network';
     default:
-      return 'Could not sign in. Please try again.';
+      return 'generic';
   }
 }
 
 export function LoginScreen() {
+  const { t } = useTranslation('auth');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -39,7 +42,7 @@ export function LoginScreen() {
       // Auth state change is handled by App's useAuthState listener.
     } catch (e) {
       const code = (e as { code?: string }).code ?? '';
-      setError(messageForCode(code));
+      setError(t(`login.errors.${errorKeyForCode(code)}`));
     } finally {
       setSubmitting(false);
     }
@@ -49,9 +52,9 @@ export function LoginScreen() {
     <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>mendescompany-app</Text>
-        <Text style={styles.subtitle}>Sign in to continue</Text>
+        <Text style={styles.subtitle}>{t('login.subtitle')}</Text>
 
-        <Text style={styles.label}>Email</Text>
+        <Text style={styles.label}>{t('login.emailLabel')}</Text>
         <TextInput
           style={styles.input}
           value={email}
@@ -66,7 +69,7 @@ export function LoginScreen() {
           onSubmitEditing={handleSignIn}
         />
 
-        <Text style={styles.label}>Password</Text>
+        <Text style={styles.label}>{t('login.passwordLabel')}</Text>
         <TextInput
           style={styles.input}
           value={password}
@@ -90,7 +93,7 @@ export function LoginScreen() {
           onPress={handleSignIn}
           disabled={!canSubmit}
         >
-          {submitting ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Sign in</Text>}
+          {submitting ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>{t('login.submit')}</Text>}
         </Pressable>
       </View>
     </View>

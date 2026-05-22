@@ -1,19 +1,9 @@
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged, type User } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { useAppSelector } from '@/store/hooks';
 
-/** Tracks the current Firebase user. `initializing` is true until the first auth check resolves. */
+/**
+ * Estado de auth vindo do Redux (alimentado pelo AuthListener).
+ * `initializing` é true até a primeira checagem de sessão resolver.
+ */
 export function useAuthState() {
-  const [user, setUser] = useState<User | null>(null);
-  const [initializing, setInitializing] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      setInitializing(false);
-    });
-    return unsubscribe;
-  }, []);
-
-  return { user, initializing };
+  return useAppSelector((s) => s.auth);
 }

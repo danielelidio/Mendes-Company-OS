@@ -1,6 +1,8 @@
 import { Platform } from 'react-native';
 import { getApp, getApps, initializeApp, type FirebaseApp, type FirebaseOptions } from 'firebase/app';
 import * as firebaseAuth from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectStorageEmulator, getStorage } from 'firebase/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Firebase Web config. Values come from EXPO_PUBLIC_* env vars (see .env / .env.example).
@@ -20,6 +22,12 @@ export const isFirebaseConfigured = Boolean(firebaseConfig.apiKey && firebaseCon
 
 /** Initialize once — guards against re-init on Fast Refresh / repeated imports. */
 export const firebaseApp: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+/** Firestore — stores the extracted Nota Fiscal records (the queryable table). */
+export const db = getFirestore(firebaseApp);
+
+/** Cloud Storage — stores the uploaded XML files. */
+export const storage = getStorage(firebaseApp);
 
 /**
  * Auth works on both web and native:
@@ -51,3 +59,17 @@ function createAuth(): firebaseAuth.Auth {
 }
 
 export const auth: firebaseAuth.Auth = createAuth();
+
+// Local testing / E2E: connect to the Firebase Emulator Suite when the flag is set.
+// (EXPO_PUBLIC_USE_FIREBASE_EMULATOR=true; emulator host defaults to localhost.)
+export const usingEmulator = process.env.EXPO_PUBLIC_USE_FIREBASE_EMULATOR === 'true';
+if (usingEmulator) {
+  const host = process.env.EXPO_PUBLIC_FIREBASE_EMULATOR_HOST || 'localhost';
+  try {
+    firebaseAuth.connectAuthEmulator(auth, `http://${host}:9099`, { disableWarnings: true });
+    connectFirestoreEmulator(db, host, 8080);
+    connectStorageEmulator(storage, host, 9199);
+  } catch {
+    // Already connected (Fast Refresh re-ran this module) — ignore.
+  }
+}

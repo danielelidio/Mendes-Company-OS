@@ -4,11 +4,15 @@ services:
       context: ./app
       dockerfile: Dockerfile.dev
     container_name: mendescompany-web
+    depends_on:
+      - firebase-emulators
     ports:
       - "3005:3005"
     volumes:
       - ./app:/app
-      - app_node_modules:/app/node_modules
+      # node_modules ANÔNIMO (não nomeado): com `up -V` é re-semeado a partir da imagem,
+      # então `up --build` após mudar o package.json já traz as deps — sem install em runtime.
+      - /app/node_modules
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -18,5 +22,38 @@ services:
       - EXPO_NO_TELEMETRY=1
     command: npx expo start --web --port 3005 --host lan
 
-volumes:
-  app_node_modules:
+  firebase-emulators:
+    build:
+      context: .
+      dockerfile: firebase.Dockerfile
+    container_name: mc-os-firebase
+    ports:
+      - "4000:4000" # Emulator UI
+      - "9099:9099" # Auth
+      - "8080:8080" # Firestore
+      - "9199:9199" # Storage
+    volumes:
+      - ./firebase.json:/srv/firebase.json
+      - ./.firebaserc:/srv/.firebaserc
+      - ./firestore.rules:/srv/firestore.rules
+      - ./storage.rules:/srv/storage.rules
+
+  # Runner de testes E2E (Playwright). Rodado sob demanda via scripts/e2e-docker.sh.
+  e2e:
+    build:
+      context: ./app
+      dockerfile: e2e.Dockerfile
+    image: mc-os-e2e
+    working_dir: /app
+    depends_on:
+      - firebase-emulators
+    environment:
+      - E2E_EMULATOR_HOST=firebase-emulators
+      - EXPO_NO_TELEMETRY=1
+      - CI=1
+    volumes:
+      - ./app:/app
+      # node_modules anônimo: cada `docker compose run` cria um container novo e o
+      # re-semeia da imagem (reconstruída quando o package.json muda).
+      - /app/node_modules
+      - ./samples:/samples:ro
