@@ -1,25 +1,28 @@
-import { useState } from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { Sidebar, type ScreenKey } from './src/components/Sidebar';
-import { HomeScreen } from './src/screens/HomeScreen';
+import { useAuthState } from '@/features/auth/hooks/useAuthState';
+import { LoginScreen } from '@/features/auth/screens/LoginScreen';
+import { AppShell } from '@/components/AppShell';
 
 export default function App() {
-  const [tela, setTela] = useState<ScreenKey>('home');
+  const { user, initializing } = useAuthState();
 
   return (
-    <SafeAreaView style={styles.root}>
-      <View style={styles.body}>
-        <Sidebar active={tela} onNavigate={setTela} />
-        <View style={styles.content}>{tela === 'home' && <HomeScreen />}</View>
-      </View>
+    <>
+      {initializing ? (
+        <View style={styles.center}>
+          <ActivityIndicator color="#94a3b8" />
+        </View>
+      ) : user ? (
+        <AppShell user={user} />
+      ) : (
+        <LoginScreen />
+      )}
       <StatusBar style="light" />
-    </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#0f172a' },
-  body: { flex: 1, flexDirection: 'row' },
-  content: { flex: 1 },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f172a' },
 });

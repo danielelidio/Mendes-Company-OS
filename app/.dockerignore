@@ -1,14 +1,7 @@
 node_modules
 .expo
 dist
-dist-web
-electron/dist
 web-build
 .git
-.gitignore
-.env
-.env.*
 *.log
-.DS_Store
-ios
-android
+npm-debug.*

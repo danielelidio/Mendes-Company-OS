@@ -1,77 +1,85 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 export type ScreenKey = 'home';
 
-interface MenuItem {
-  key: ScreenKey;
-  label: string;
-}
-
-const MENU: MenuItem[] = [{ key: 'home', label: 'Home' }];
-
-export function Sidebar({
-  active,
-  onNavigate,
-}: {
+type SidebarProps = {
+  collapsed: boolean;
+  onToggle: () => void;
   active: ScreenKey;
   onNavigate: (key: ScreenKey) => void;
-}) {
+};
+
+const ITEMS: { key: ScreenKey; label: string; icon: keyof typeof Feather.glyphMap }[] = [
+  { key: 'home', label: 'Home', icon: 'home' },
+];
+
+export function Sidebar({ collapsed, onToggle, active, onNavigate }: SidebarProps) {
   return (
-    <View style={styles.sidebar}>
-      <View style={styles.brand}>
-        <Text style={styles.brandText}>mendescompany-os</Text>
-      </View>
-      <ScrollView contentContainerStyle={styles.menu}>
-        {MENU.map((item) => {
-          const selected = item.key === active;
+    <View style={[styles.sidebar, collapsed ? styles.collapsed : styles.expanded]}>
+      <Pressable style={styles.toggle} onPress={onToggle} hitSlop={8}>
+        <Feather name={collapsed ? 'menu' : 'chevron-left'} size={20} color="#cbd5e1" />
+        {!collapsed && <Text style={styles.brand}>mendescompany</Text>}
+      </Pressable>
+
+      <View style={styles.items}>
+        {ITEMS.map((item) => {
+          const isActive = item.key === active;
           return (
             <Pressable
               key={item.key}
+              onPress={() => onNavigate(item.key)}
               style={({ pressed }) => [
                 styles.item,
-                selected && styles.itemActive,
-                pressed && styles.pressed,
+                collapsed && styles.itemCollapsed,
+                isActive && styles.itemActive,
+                pressed && styles.itemPressed,
               ]}
-              onPress={() => onNavigate(item.key)}
             >
-              <View style={[styles.dot, selected && styles.dotActive]} />
-              <Text style={[styles.itemLabel, selected && styles.itemLabelActive]}>
-                {item.label}
-              </Text>
+              <Feather name={item.icon} size={20} color={isActive ? '#f8fafc' : '#94a3b8'} />
+              {!collapsed && (
+                <Text style={[styles.label, isActive && styles.labelActive]}>{item.label}</Text>
+              )}
             </Pressable>
           );
         })}
-      </ScrollView>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   sidebar: {
-    width: 264,
-    backgroundColor: '#0b1220',
+    backgroundColor: '#111827',
     borderRightWidth: 1,
-    borderRightColor: '#1e293b',
+    borderRightColor: '#1f2937',
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    gap: 8,
   },
-  brand: {
-    paddingHorizontal: 20,
-    paddingVertical: 18,
-    borderBottomWidth: 1,
-    borderBottomColor: '#1e293b',
-  },
-  brandText: { color: '#f8fafc', fontWeight: '700', fontSize: 16 },
-  menu: { paddingVertical: 12 },
-  item: {
+  expanded: { width: 220 },
+  collapsed: { width: 64 },
+  toggle: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    marginBottom: 8,
   },
-  itemActive: { backgroundColor: '#1e293b', borderRightWidth: 2, borderRightColor: '#2563eb' },
-  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#475569' },
-  dotActive: { backgroundColor: '#2563eb' },
-  itemLabel: { color: '#cbd5e1', fontSize: 14 },
-  itemLabelActive: { color: '#f8fafc', fontWeight: '600' },
-  pressed: { opacity: 0.8 },
+  brand: { color: '#e5e7eb', fontWeight: '700' },
+  items: { gap: 4 },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+  },
+  itemCollapsed: { justifyContent: 'center', paddingHorizontal: 0 },
+  itemActive: { backgroundColor: '#1f2937' },
+  itemPressed: { opacity: 0.8 },
+  label: { color: '#94a3b8', fontSize: 15 },
+  labelActive: { color: '#f8fafc', fontWeight: '600' },
 });
