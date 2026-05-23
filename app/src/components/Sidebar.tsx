@@ -15,7 +15,11 @@ const GROUPS: Group[] = [
     id: 'contabilidade',
     labelKey: 'nav.accounting',
     icon: 'book',
-    children: [{ href: '/contabilidade/notas-fiscais', labelKey: 'nav.invoices', icon: 'file-text' }],
+    children: [
+      { href: '/contabilidade/notas-fiscais', labelKey: 'nav.invoices', icon: 'file-text' },
+      { href: '/contabilidade/invoices', labelKey: 'nav.faturas', icon: 'file' },
+      { href: '/contabilidade/invoice-config', labelKey: 'nav.invoiceConfig', icon: 'settings' },
+    ],
   },
 ];
 

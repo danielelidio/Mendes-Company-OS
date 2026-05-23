@@ -18,6 +18,9 @@ export const SAMPLE_NACIONAL = path.join(
   '31062002241749998000109000000000000926056753970113.xml',
 );
 
+/** PDF de exemplo para anexar em invoices nos testes. */
+export const SAMPLE_INVOICE_PDF = path.resolve(__dirname, '../../samples/invoices/NP-001-2026-02 - Signed.pdf');
+
 /** Signs in through the login screen and waits for the Home screen. */
 export async function login(page: Page): Promise<void> {
   await page.goto('/login');
