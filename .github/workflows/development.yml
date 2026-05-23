@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   test:
-    name: Test (tsc + E2E)
+    name: Test (tsc + unit + E2E)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,6 +40,10 @@ jobs:
       - name: Type-check
         working-directory: app
         run: npx tsc --noEmit
+
+      - name: Unit tests
+        working-directory: app
+        run: npm test -- --ci
 
       - name: Install Playwright Chromium
         working-directory: app

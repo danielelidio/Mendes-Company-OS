@@ -8,5 +8,5 @@
       "@/*": ["src/*"]
     }
   },
-  "exclude": ["e2e", "playwright.config.ts"]
+  "exclude": ["e2e", "playwright.config.ts", "**/*.test.ts", "**/*.test.tsx"]
 }

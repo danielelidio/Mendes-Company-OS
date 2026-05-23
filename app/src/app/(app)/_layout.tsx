@@ -6,6 +6,8 @@ import { Sidebar } from '@/components/Sidebar';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { UserMenu } from '@/features/auth/components/UserMenu';
 import { ClientsSubscriber } from '@/features/clientes/components/ClientsSubscriber';
+import { InvoicesSubscriber } from '@/features/contabilidade/invoices/components/InvoicesSubscriber';
+import { InvoiceConfigSubscriber } from '@/features/contabilidade/invoices/components/InvoiceConfigSubscriber';
 import { UploadStatusBar } from '@/features/contabilidade/notas-fiscais/components/UploadStatusBar';
 import { MatchModal } from '@/features/contabilidade/notas-fiscais/components/MatchModal';
 
@@ -25,6 +27,8 @@ export default function AppLayout() {
   return (
     <View style={styles.root}>
       <ClientsSubscriber />
+      <InvoicesSubscriber />
+      <InvoiceConfigSubscriber />
       <Sidebar collapsed={collapsed} onToggle={() => setCollapsed((c) => !c)} />
       <View style={styles.content}>
         <View style={styles.topBar}>
