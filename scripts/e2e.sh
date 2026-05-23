@@ -23,6 +23,9 @@ ${DIM}Args extras são repassados ao Playwright, por exemplo:${RESET}
   ./scripts/e2e.sh --headed                # navegador visível
   ./scripts/e2e.sh notas-fiscais.spec.ts   # só um arquivo
   ./scripts/e2e.sh -g "login"              # filtra pelo título do teste
+
+${DIM}Para assistir (visível + câmera lenta) use ${RESET}./scripts/e2e-watch.sh${DIM},${RESET}
+${DIM}ou rode em câmera lenta direto: ${RESET}E2E_SLOWMO=600 ./scripts/e2e.sh --headed
 EOF
 }
 case "${1:-}" in -h | --help) usage; exit 0 ;; esac
