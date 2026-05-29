@@ -21,6 +21,14 @@ const GROUPS: Group[] = [
       { href: '/contabilidade/invoice-config', labelKey: 'nav.invoiceConfig', icon: 'settings' },
     ],
   },
+  {
+    id: 'personal',
+    labelKey: 'nav.personal',
+    icon: 'user',
+    children: [
+      { href: '/personal/genevieve-irpf', labelKey: 'nav.genevieveIrpf', icon: 'dollar-sign' },
+    ],
+  },
 ];
 
 function isActive(href: string, pathname: string): boolean {

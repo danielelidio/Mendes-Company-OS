@@ -5,6 +5,7 @@ import uploadReducer from '@/features/contabilidade/notas-fiscais/store/uploadSl
 import notasFiscaisReducer from '@/features/contabilidade/notas-fiscais/store/notasFiscaisSlice';
 import invoicesReducer from '@/features/contabilidade/invoices/store/invoicesSlice';
 import invoiceConfigReducer from '@/features/contabilidade/invoices/store/invoiceConfigSlice';
+import irpfReducer from '@/features/personal-irpf/store/irpfSlice';
 
 // Cada feature contribui com seu próprio slice (definido na pasta da feature).
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     notasFiscais: notasFiscaisReducer,
     invoices: invoicesReducer,
     invoiceConfig: invoiceConfigReducer,
+    irpf: irpfReducer,
   },
 });
 

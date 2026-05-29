@@ -5,14 +5,14 @@ export const COMMON_NS = 'common';
 
 const en = {
   search: { placeholder: 'Search…', noResults: 'No results', select: 'Select' },
-  nav: { home: 'Home', clients: 'Clients', accounting: 'Accounting', invoices: 'Service Tax Statements', faturas: 'Invoices', invoiceConfig: 'Invoice Configuration' },
+  nav: { home: 'Home', clients: 'Clients', accounting: 'Accounting', invoices: 'Service Tax Statements', faturas: 'Invoices', invoiceConfig: 'Invoice Configuration', personal: 'Personal', genevieveIrpf: "Genevieve's IRPF 2025/2026" },
   actions: { save: 'Save', cancel: 'Cancel', delete: 'Delete' },
   language: { switch: 'Change language' },
 };
 
 const pt: typeof en = {
   search: { placeholder: 'Buscar…', noResults: 'Nenhum resultado', select: 'Selecione' },
-  nav: { home: 'Início', clients: 'Clientes', accounting: 'Contabilidade', invoices: 'Notas Fiscais', faturas: 'Invoices', invoiceConfig: 'Configuração de Invoice' },
+  nav: { home: 'Início', clients: 'Clientes', accounting: 'Contabilidade', invoices: 'Notas Fiscais', faturas: 'Invoices', invoiceConfig: 'Configuração de Invoice', personal: 'Pessoal', genevieveIrpf: 'IRPF 2025/2026 — Genevieve' },
   actions: { save: 'Salvar', cancel: 'Cancelar', delete: 'Excluir' },
   language: { switch: 'Trocar idioma' },
 };

@@ -7,10 +7,11 @@ import { homeI18n } from '@/features/home/i18n';
 import { clientesI18n } from '@/features/clientes/i18n';
 import { notasFiscaisI18n } from '@/features/contabilidade/notas-fiscais/i18n';
 import { invoicesI18n } from '@/features/contabilidade/invoices/i18n';
+import { irpfI18n } from '@/features/personal-irpf/i18n';
 
 // Registro de features: cada uma implementa o contrato FeatureI18n.
 // Para adicionar uma feature (ou um pacote externo), basta incluir seu contrato aqui.
-const FEATURE_I18N: FeatureI18n[] = [commonI18n, authI18n, homeI18n, clientesI18n, notasFiscaisI18n, invoicesI18n];
+const FEATURE_I18N: FeatureI18n[] = [commonI18n, authI18n, homeI18n, clientesI18n, notasFiscaisI18n, invoicesI18n, irpfI18n];
 
 if (!i18n.isInitialized) {
   void i18n.use(initReactI18next).init({
